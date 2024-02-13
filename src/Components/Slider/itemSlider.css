@@ -1,0 +1,28 @@
+.slide__item {
+  width: 100%;
+  height: calc(100vh - 64px);
+  overflow: hidden;
+}
+
+.slide__item .img-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.MuiButtonBase-root {
+  background-color: transparent !important;
+  font-size: 30px !important;
+}
+
+.MuiButtonBase-root svg {
+  height: 4rem;
+  width: 4rem;
+}
+
+.css-1abc02a:hover .MuiButtonBase-root svg {
+  fill: white !important;
+}
