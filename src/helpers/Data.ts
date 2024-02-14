@@ -1,4 +1,8 @@
-import { IInputsAttribute, ISlider } from "../interfaces";
+import {
+  IInputsLoginAttribute,
+  IInputsOrderAttribute,
+  ISlider,
+} from "../interfaces";
 import logoCompany from "/images/logo.png";
 import img1 from "/images/slider1.jpg";
 
@@ -49,7 +53,7 @@ export const serviceData = [
   },
 ];
 
-export const formOrderInputs: IInputsAttribute[] = [
+export const formOrderInputs: IInputsOrderAttribute[] = [
   {
     name: "name",
     id: "name",
@@ -67,5 +71,20 @@ export const formOrderInputs: IInputsAttribute[] = [
     id: "address",
     label: "address",
     type: "text",
+  },
+];
+
+export const formLoginInputs: IInputsLoginAttribute[] = [
+  {
+    name: "email",
+    id: "email",
+    label: "email",
+    type: "email",
+  },
+  {
+    name: "password",
+    id: "password",
+    label: "password",
+    type: "password",
   },
 ];

@@ -13,3 +13,11 @@ export const notify = (status: string, massage: string) => {
       break;
   }
 };
+
+export const storeInLocalStorage = (key: string, value: unknown) => {
+  localStorage.setItem(key, JSON.stringify(value));
+};
+
+export const getFromLocalStorage = (key: string) => {
+  return localStorage.getItem(key);
+};

@@ -4,15 +4,26 @@ export interface ISlider {
   img: string;
 }
 
-export interface IInputsAttribute {
-  name: keyof IFormFields;
+export interface IInputsOrderAttribute {
+  name: keyof IFormOrderFields;
   id: string;
   label: string;
   type: string;
 }
 
-export interface IFormFields {
+export interface IFormOrderFields {
   name: string;
   phone: string;
   address: string;
+}
+export interface IFormLoginField {
+  email: string;
+  password: string;
+}
+
+export interface IInputsLoginAttribute {
+  name: keyof IFormLoginField;
+  id: string;
+  label: string;
+  type: string;
 }

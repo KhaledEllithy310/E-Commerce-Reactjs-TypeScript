@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import { logo } from "../../helpers/Data";
 
 const pages = [
+  { name: "Login", link: "login" },
   { name: <Favorite />, link: "wishList" },
   { name: <ShoppingCart />, link: "cart" },
 ];

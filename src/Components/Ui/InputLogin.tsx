@@ -1,16 +1,23 @@
 import { InputHTMLAttributes } from "react";
 import { FieldErrors, UseFormRegister } from "react-hook-form";
-import { IFormFields } from "../../interfaces";
+import { IFormLoginField } from "../../interfaces";
 
 interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  name: keyof IFormFields;
+  name: keyof IFormLoginField;
   id: string;
   label: string;
   type: string;
-  register: UseFormRegister<IFormFields>;
-  errors: FieldErrors<IFormFields>;
+  register: UseFormRegister<IFormLoginField>;
+  errors: FieldErrors<IFormLoginField>;
 }
-const Input = ({ id, label, name, type, register, errors }: IInputProps) => {
+const InputLogin = ({
+  id,
+  label,
+  name,
+  type,
+  register,
+  errors,
+}: IInputProps) => {
   return (
     <section key={id} className="space-y-2">
       <section className="flex items-center justify-between">
@@ -42,4 +49,4 @@ const Input = ({ id, label, name, type, register, errors }: IInputProps) => {
   );
 };
 
-export default Input;
+export default InputLogin;

@@ -2,53 +2,53 @@ import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { formOrderInputs } from "../../helpers/Data";
-import MainTitle from "../Ui/MainTitle";
+import Button from "../Components/Ui/Button";
 import { CircularProgress } from "@mui/material";
-import Button from "../Ui/Button";
-import { notify } from "../../helpers/Functions";
-import { IFormOrderFields } from "../../interfaces";
-import InputOrder from "../Ui/InputOrder";
+import MainTitle from "../Components/Ui/MainTitle";
+import { formLoginInputs } from "../helpers/Data";
+import { notify, storeInLocalStorage } from "../helpers/Functions";
+import { IFormLoginField } from "../interfaces";
+import InputLogin from "../Components/Ui/InputLogin";
+import { useNavigate } from "react-router-dom";
 
-const FormOrder = () => {
+const Login = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
-
+  const navigate = useNavigate();
   //----------HANDLERS----------//
   const orderSchema = z.object({
-    name: z.string().min(3, "first name is required at least 3 characters"),
-    phone: z
-      .string()
-      .regex(
-        /^(0)(10|11|15)\d{8}$/,
-        "Invalid phone number format (010/011/015) only"
-      ),
-    address: z.string().min(10, "address is required at least 10 characters"),
+    email: z.string().min(3, "email is required").email("enter valid email"),
+    password: z.string(),
   });
 
   const {
     handleSubmit,
     register,
+    reset,
     formState: { errors },
-  } = useForm<IFormOrderFields>({
+  } = useForm<IFormLoginField>({
     mode: "onChange",
     resolver: zodResolver(orderSchema),
   });
-  const onSubmit: SubmitHandler<IFormOrderFields> = (data) => {
+  const onSubmit: SubmitHandler<IFormLoginField> = (data) => {
     setIsLoading(true);
-    if (data) {
-      notify("success", "order successfully");
-    }
-    setTimeout(() => {
-      console.log(data);
 
+    if (data) {
+      if (data.password === "techno") {
+        //store flag that user is login
+        storeInLocalStorage("isAuth", "true");
+        storeInLocalStorage("user", data);
+        notify("success", "Login successfully");
+        setIsLoading(false);
+        reset();
+        navigate("/");
+      } else notify("error", "Login Failed");
       setIsLoading(false);
-      console.log("form submitted");
-    }, 1000);
+    } else notify("error", "Login Failed");
   };
   //----------RENDERS----------//
 
-  const renderInputsForm = formOrderInputs.map((item) => (
-    <InputOrder
+  const renderInputsForm = formLoginInputs.map((item) => (
+    <InputLogin
       id={item.id}
       label={item.label}
       name={item.name}
@@ -62,7 +62,7 @@ const FormOrder = () => {
   return (
     <div className="flex flex-1 flex-col w-full md:w-1/2 mx-auto pb-16">
       <section className="container">
-        <MainTitle title="Location" color="text-background" height="py-6" />
+        <MainTitle title="Login" color="text-background" height="py-6" />
         <div className="sm:mx-auto sm:w-full ">
           <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
             {renderInputsForm}
@@ -72,7 +72,7 @@ const FormOrder = () => {
                 {isLoading ? (
                   <CircularProgress color="primary" size={20} />
                 ) : (
-                  "Send"
+                  "Login"
                 )}
               </Button>
             </div>
@@ -83,4 +83,4 @@ const FormOrder = () => {
   );
 };
 
-export default FormOrder;
+export default Login;
