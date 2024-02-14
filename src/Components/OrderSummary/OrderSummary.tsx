@@ -35,7 +35,7 @@ const OrderSummary = () => {
       {/* End total */}
       {/* Start action */}
       <div className="text-center">
-        <Button classes="py-2 px-20 bg-primary text-white hover:bg-orange-400 hover:shadow-lg">
+        <Button classes="py-2 w-2/3 md:w-full lg:w-2/3 bg-primary text-white hover:bg-orange-400 hover:shadow-lg">
           Check out
         </Button>
       </div>

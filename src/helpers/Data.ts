@@ -1,4 +1,4 @@
-import { ISlider } from "../interfaces";
+import { IInputsAttribute, ISlider } from "../interfaces";
 import logoCompany from "/images/logo.png";
 import img1 from "/images/slider1.jpg";
 
@@ -46,5 +46,26 @@ export const serviceData = [
   {
     icon: service4,
     description: "lorem",
+  },
+];
+
+export const formOrderInputs: IInputsAttribute[] = [
+  {
+    name: "name",
+    id: "name",
+    label: "full name",
+    type: "text",
+  },
+  {
+    name: "phone",
+    id: "phone",
+    label: "phone number",
+    type: "text",
+  },
+  {
+    name: "address",
+    id: "address",
+    label: "address",
+    type: "text",
   },
 ];
