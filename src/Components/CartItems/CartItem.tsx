@@ -20,7 +20,7 @@ const CartItem = ({ product }: IProps) => {
         <img
           src={product.image}
           alt="item"
-          className="w-full h-60 object-contain md:h-full rounded-tl-md rounded-bl-md"
+          className="w-full h-60 object-contain rounded-tl-md rounded-bl-md"
         />
       </div>
       <section className="p-4 col-span-3">

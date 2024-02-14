@@ -5,6 +5,7 @@ import {
 } from "../interfaces";
 import logoCompany from "/images/logo.png";
 import img1 from "/images/slider1.jpg";
+import orderdone from "/images/orderdone.png";
 
 // icons Services
 import service1 from "/images/services/service1.png";
@@ -13,6 +14,7 @@ import service3 from "/images/services/service3.png";
 import service4 from "/images/services/service4.png";
 
 export const logo = logoCompany;
+export const orderDoneImg = orderdone;
 export const itemsSlider: ISlider[] = [
   {
     name: "find the new collection in this winter season",

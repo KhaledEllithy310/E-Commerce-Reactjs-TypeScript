@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="py-10 shadow-[0px_30px_30px_20px_rgba(0,0,0,0.5)] ">
+    <footer className="py-10">
       <section className="container space-y-4 flex justify-center flex-col items-center text-background">
         <Link to={"/"}>
           <img src="/images/logo.png" className="w-56" alt="logo" />

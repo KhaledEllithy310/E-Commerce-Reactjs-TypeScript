@@ -3,10 +3,13 @@ import Button from "../Ui/Button";
 import MainTitle from "../Ui/MainTitle";
 import { cartSelector } from "../../RTK/features/Cart/CartSlice";
 import { calculateCartTotal } from "../../helpers/Functions";
+import { useAppDispatch } from "../../RTK/Store";
+import { checkout, orderSelector } from "../../RTK/features/Order/OrderSlice";
 
 const OrderSummary = () => {
   const { cartItems } = useSelector(cartSelector);
-
+  const { isFormShowed } = useSelector(orderSelector);
+  const dispatch = useAppDispatch();
   const totalCartPrice = calculateCartTotal(cartItems);
   const [tax, delivery] = [24, 16];
   return (
@@ -44,9 +47,16 @@ const OrderSummary = () => {
       {/* End total */}
       {/* Start action */}
       <div className="text-center">
-        <Button classes="py-2 w-2/3 md:w-full lg:w-2/3 bg-primary text-white hover:bg-orange-400 hover:shadow-lg">
-          Check out
-        </Button>
+        {!isFormShowed && (
+          <Button
+            classes="py-2 w-2/3 md:w-full lg:w-2/3 bg-primary text-white hover:bg-orange-400 hover:shadow-lg"
+            onClick={() => {
+              dispatch(checkout());
+            }}
+          >
+            Check out
+          </Button>
+        )}
       </div>
       {/* End action */}
       {/* End order summary */}

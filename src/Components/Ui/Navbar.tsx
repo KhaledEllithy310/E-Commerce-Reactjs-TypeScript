@@ -10,6 +10,9 @@ import MenuItem from "@mui/material/MenuItem";
 import { Favorite, ShoppingCart } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { logo } from "../../helpers/Data";
+import { Badge } from "@mui/material";
+import { useSelector } from "react-redux";
+import { cartSelector } from "../../RTK/features/Cart/CartSlice";
 
 const pages = [
   { name: "Login", link: "login" },
@@ -18,6 +21,8 @@ const pages = [
 ];
 
 const Navbar = () => {
+  const { cartItems } = useSelector(cartSelector);
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -30,7 +35,7 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "#F3F3F3" }}>
+    <AppBar position="fixed" sx={{ backgroundColor: "#F3F3F3" }}>
       <section className="container">
         <Toolbar disableGutters>
           {/* Start Logo in Large Screen */}
@@ -88,10 +93,22 @@ const Navbar = () => {
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             {pages.map((page, index) => (
               <Link to={page.link} key={index} className="text-textColor ml-3">
-                {page.name}
+                {page.link === "wishList" || page.link === "cart" ? (
+                  <Badge
+                    badgeContent={
+                      page.link === "wishList" ? 2 : cartItems.length
+                    }
+                    color="error"
+                  >
+                    {page.name}
+                  </Badge>
+                ) : (
+                  page.name
+                )}
               </Link>
             ))}
           </Box>
+
           {/* End Nav Links */}
         </Toolbar>
       </section>

@@ -30,10 +30,9 @@ export const addItemToCart = (
   product: ICartProduct | IProduct
 ): ICartProduct[] => {
   const exits = cartItems.find((item: ICartProduct) => item.id === product.id);
-  // console.log("exits", exits);
-
   if (exits) {
     console.log("exits", exits);
+    notify("success", "increment quantity successfully");
     return cartItems.map((item: ICartProduct) =>
       item.id === product.id
         ? {
@@ -43,7 +42,7 @@ export const addItemToCart = (
         : item
     );
   }
-
+  notify("success", "added to cart successfully");
   return [...cartItems, { ...(product as IProduct), quantity: 1 }];
 };
 
