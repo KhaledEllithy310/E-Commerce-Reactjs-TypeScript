@@ -15,20 +15,23 @@ const CartItem = ({ product }: IProps) => {
   const dispatch = useAppDispatch();
 
   return (
-    <section className=" border-2 gap-4 grid grid-cols-1 sm:grid-cols-4 rounded-md">
-      <div className="col-span-1">
+    <section className=" border-2 gap-4 grid grid-cols-1 sm:grid-cols-4 rounded-md ">
+      <div className="col-span-1 overflow-hidden">
         <img
           src={product.image}
           alt="item"
-          className="w-full rounded-tl-md rounded-bl-md"
+          className="w-full h-60 object-contain md:h-full rounded-tl-md rounded-bl-md"
         />
       </div>
       <section className="p-4 col-span-3">
-        <h3 className="font-medium text-xl capitalize text-background pb-8">
-          {product.title}
+        <h3
+          className="font-medium text-xl capitalize text-background pb-8"
+          title={product.title}
+        >
+          {product.title.slice(0, 20)}...
         </h3>
         {/* start quantity and price */}
-        <section className="flex justify-between w-full">
+        <section className="flex flex-col md:flex-row justify-between w-full ">
           {/* Start price */}
           <p className="text-xl text-background font-bold">{product.price} $</p>
           {/* End price */}

@@ -1,7 +1,14 @@
+import { useSelector } from "react-redux";
 import Button from "../Ui/Button";
 import MainTitle from "../Ui/MainTitle";
+import { cartSelector } from "../../RTK/features/Cart/CartSlice";
+import { calculateCartTotal } from "../../helpers/Functions";
 
 const OrderSummary = () => {
+  const { cartItems } = useSelector(cartSelector);
+
+  const totalCartPrice = calculateCartTotal(cartItems);
+  const [tax, delivery] = [24, 16];
   return (
     <section className="border-2 rounded-md px-6 pb-10">
       <MainTitle title="Order Summary" color="text-background" height="py-6" />
@@ -10,18 +17,18 @@ const OrderSummary = () => {
         {/* Start cart total */}
         <div className="flex justify-between items-center capitalize">
           <span>cart total</span>
-          <span>155 $</span>
+          <span>{totalCartPrice} $</span>
         </div>
         {/* End cart total */}
         {/* Start tax */}
         <div className="flex justify-between items-center capitalize">
-          <span>tax</span>
+          <span>{tax}</span>
           <span>24 $</span>
         </div>
         {/* End tax */}
         {/* Start delivery */}
         <div className="flex justify-between items-center capitalize">
-          <span>delivery</span>
+          <span>{delivery}</span>
           <span>16 $</span>
         </div>
         {/* End delivery */}
@@ -30,7 +37,9 @@ const OrderSummary = () => {
       {/* Start total */}
       <div className="flex justify-between items-center capitalize py-6">
         <span>total</span>
-        <span className="text-background font-bold">500 $</span>
+        <span className="text-background font-bold text-lg">
+          {(totalCartPrice + tax + delivery).toFixed(2)} $
+        </span>
       </div>
       {/* End total */}
       {/* Start action */}

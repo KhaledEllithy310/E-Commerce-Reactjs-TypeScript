@@ -53,3 +53,11 @@ export const findCartItemById = (
 ): ICartProduct | undefined => {
   return cartItems.find((item) => item.id === itemId);
 };
+
+export const calculateCartTotal = (cartItems: ICartProduct[]): number => {
+  let totalPrice = 0;
+  cartItems.forEach((item) => {
+    totalPrice += item.price * item.quantity;
+  });
+  return +totalPrice.toFixed(2);
+};
