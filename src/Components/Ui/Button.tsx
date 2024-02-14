@@ -1,11 +1,11 @@
-import React from "react";
+import React, { ReactNode } from "react";
 interface IProps {
-  title: string;
   classes?: string;
+  children?: ReactNode;
 }
-const Button = ({ title, classes }: IProps) => {
+const Button = ({ children, classes }: IProps) => {
   return (
-    <button className={` ${classes} rounded-md capitalize`}>{title}</button>
+    <button className={` ${classes} rounded-lg capitalize`}>{children}</button>
   );
 };
 

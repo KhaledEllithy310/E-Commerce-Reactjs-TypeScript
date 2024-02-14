@@ -14,10 +14,9 @@ const Item = ({ item }: IProps) => {
         <div className="text-xl text-white space-y-10">
           <p className="font-bold capitalize">{item.name}</p>
           <p className="">{item.description}</p>
-          <Button
-            title="buy now"
-            classes="text-white bg-background py-2 px-20 hover:bg-sky-800"
-          />
+          <Button classes="text-white bg-background py-2 px-20 hover:bg-sky-800">
+            buy now
+          </Button>
         </div>
       </section>
     </section>
