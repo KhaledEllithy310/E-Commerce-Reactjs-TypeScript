@@ -1,9 +1,3 @@
-// import {
-//   AccessTimeFilled,
-//   AirportShuttle,
-//   Percent,
-//   VolunteerActivism,
-// } from "@mui/icons-material";
 import ServiceItem from "./ServiceItem";
 import { serviceData } from "../../helpers/Data";
 
