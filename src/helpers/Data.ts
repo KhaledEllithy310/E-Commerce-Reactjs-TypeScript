@@ -2,8 +2,13 @@ import { ISlider } from "../interfaces";
 import logoCompany from "/images/logo.png";
 import img1 from "/images/slider1.jpg";
 
-export const logo = logoCompany;
+// icons Services
+import service1 from "/images/services/service1.png";
+import service2 from "/images/services/service2.png";
+import service3 from "/images/services/service3.png";
+import service4 from "/images/services/service4.png";
 
+export const logo = logoCompany;
 export const itemsSlider: ISlider[] = [
   {
     name: "find the new collection in this winter season",
@@ -22,5 +27,24 @@ export const itemsSlider: ISlider[] = [
     description:
       "Browse from around thousands of outfits, makeup and more! We've something for everyone.",
     img: img1,
+  },
+];
+
+export const serviceData = [
+  {
+    icon: service1,
+    description: "lorem",
+  },
+  {
+    icon: service2,
+    description: "lorem",
+  },
+  {
+    icon: service3,
+    description: "lorem",
+  },
+  {
+    icon: service4,
+    description: "lorem",
   },
 ];
