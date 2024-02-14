@@ -27,3 +27,18 @@ export interface IInputsLoginAttribute {
   label: string;
   type: string;
 }
+
+export interface ICartProduct {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+  rating: {
+    rate: number;
+    count: number;
+  };
+  quantity: number;
+}
+export interface IProduct extends Omit<ICartProduct, "quantity"> {}

@@ -7,6 +7,9 @@ import Home from "../Pages/Home";
 import RootLayout from "../Pages/Layout";
 import Cart from "../Pages/Cart";
 import Login from "../Pages/Login";
+import {
+  getDataFromLocalStorage,
+} from "../helpers/Functions";
 
 export interface IUser {
   email: string;
@@ -14,6 +17,10 @@ export interface IUser {
 }
 
 const Router = () => {
+  const isAuth = getDataFromLocalStorage("isAuth");
+  console.log("isAuth", isAuth);
+
+
   // create router with all routes
   const router = createBrowserRouter(
     createRoutesFromElements(

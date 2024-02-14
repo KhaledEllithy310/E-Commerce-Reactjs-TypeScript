@@ -35,7 +35,9 @@ const Navbar = () => {
         <Toolbar disableGutters>
           {/* Start Logo in Large Screen */}
           <Box sx={{ display: { xs: "none", md: "flex" }, mr: 1, flexGrow: 1 }}>
-            <img src={logo} alt="" className="w-32" />
+            <Link to={"/"}>
+              <img src="/images/logo.png" className="w-32" alt="logo" />
+            </Link>
           </Box>
           {/* End Logo in Large Screen */}
           {/* Start Menu */}

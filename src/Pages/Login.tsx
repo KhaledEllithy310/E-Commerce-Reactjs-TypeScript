@@ -35,7 +35,7 @@ const Login = () => {
     if (data) {
       if (data.password === "techno") {
         //store flag that user is login
-        storeInLocalStorage("isAuth", "true");
+        storeInLocalStorage("isAuth", true);
         storeInLocalStorage("user", data);
         notify("success", "Login successfully");
         setIsLoading(false);

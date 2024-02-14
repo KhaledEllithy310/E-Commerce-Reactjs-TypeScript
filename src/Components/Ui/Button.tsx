@@ -1,11 +1,13 @@
-import React, { ReactNode } from "react";
-interface IProps {
+import { ButtonHTMLAttributes, ReactNode } from "react";
+interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   classes?: string;
   children?: ReactNode;
 }
-const Button = ({ children, classes }: IProps) => {
+const Button = ({ children, classes, ...rest }: IProps) => {
   return (
-    <button className={` ${classes} rounded-lg capitalize`}>{children}</button>
+    <button className={` ${classes} rounded-lg capitalize`} {...rest}>
+      {children}
+    </button>
   );
 };
 
