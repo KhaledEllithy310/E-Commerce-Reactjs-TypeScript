@@ -1,6 +1,5 @@
 import CartItems from "../Components/CartItems/CartItems";
 import FormOrder from "../Components/FormOrder/FormOrder";
-import Footer from "../Components/Ui/Footer";
 import MainTitle from "../Components/Ui/MainTitle";
 import { useSelector } from "react-redux";
 import { orderSelector } from "../RTK/features/Order/OrderSlice";
@@ -11,7 +10,7 @@ const Cart = () => {
   const { isOrderDone } = useSelector(orderSelector);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-[400px]">
       {!isOrderDone ? (
         <>
           <MainTitle title="Cart" color="text-background" />
@@ -21,7 +20,6 @@ const Cart = () => {
       ) : (
         <OrderDone />
       )}
-      <Footer />
     </div>
   );
 };

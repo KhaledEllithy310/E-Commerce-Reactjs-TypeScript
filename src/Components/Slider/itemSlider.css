@@ -22,7 +22,12 @@
   height: 4rem;
   width: 4rem;
 }
-
+.css-1abc02a {
+  right: -26px !important;
+}
+.css-hn784z {
+  left: -26px !important;
+}
 .css-1abc02a:hover .MuiButtonBase-root svg {
   fill: white !important;
 }

@@ -1,17 +1,17 @@
-import { ReactNode } from 'react'
-import { Navigate } from 'react-router-dom'
+import { ReactNode } from "react";
+import { Navigate } from "react-router-dom";
 interface IProps {
-  isLogged: boolean
-  children: ReactNode
-  pathName: string
-  data?: unknown
+  children: ReactNode;
+  pathName: string;
+  isLoggedIn: boolean;
 }
-export default function ProtectedRouter ({
+export default function ProtectedRouter({
   children,
-  isLogged,
   pathName,
-  data
+  isLoggedIn,
 }: IProps) {
-  if (!isLogged) return <Navigate to={pathName} state={data} />
-  return children
+  console.log("isLoggedIn", isLoggedIn);
+
+  if (!isLoggedIn) return <Navigate to={pathName} />;
+  return children;
 }

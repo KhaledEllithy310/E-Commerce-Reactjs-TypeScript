@@ -47,13 +47,13 @@ const FormOrder = () => {
       dispatch(clearCart());
       notify(
         "success",
-        "Order successfully you will redirect to home after 5 seconds"
+        "Order successfully you will redirect to home after 2 seconds"
       );
     }
     setTimeout(() => {
-      dispatch(confirmPayment(true));
+      dispatch(confirmPayment(false));
       navigate("/");
-    }, 5000);
+    }, 2000);
   };
   //----------RENDERS----------//
 

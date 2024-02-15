@@ -1,6 +1,8 @@
 import { toast } from "react-toastify";
 import { ICartProduct, IProduct } from "../interfaces";
 
+//========== Notification Handlers ===========//
+
 export const notify = (status: string, massage: string) => {
   switch (status) {
     case "success":
@@ -15,6 +17,8 @@ export const notify = (status: string, massage: string) => {
   }
 };
 
+//========== LocalStorage Handlers ===========//
+
 export const storeInLocalStorage = (key: string, value: unknown) => {
   localStorage.setItem(key, JSON.stringify(value));
 };
@@ -22,8 +26,13 @@ export const storeInLocalStorage = (key: string, value: unknown) => {
 export const getDataFromLocalStorage = (key: string) => {
   const item = localStorage.getItem(key);
   if (item) return JSON.parse(item);
-  else return false;
 };
+
+export const removeFromLocalStorage = (key: string) => {
+  localStorage.removeItem(key);
+};
+
+//========== Cart Handlers ===========//
 
 export const addItemToCart = (
   cartItems: ICartProduct[],
@@ -46,6 +55,20 @@ export const addItemToCart = (
   return [...cartItems, { ...(product as IProduct), quantity: 1 }];
 };
 
+export const addItemToCartFromWishList = (
+  cartItems: ICartProduct[],
+  product: ICartProduct | IProduct
+): ICartProduct[] => {
+  const exits = cartItems.find((item: ICartProduct) => item.id === product.id);
+  if (exits) {
+    notify("error", "this item already exists in cart");
+    return cartItems;
+  }
+  notify("success", "added to cart successfully");
+  
+  return [...cartItems, { ...(product as IProduct), quantity: 1 }];
+};
+
 export const findCartItemById = (
   cartItems: ICartProduct[],
   itemId: number
@@ -59,4 +82,27 @@ export const calculateCartTotal = (cartItems: ICartProduct[]): number => {
     totalPrice += item.price * item.quantity;
   });
   return +totalPrice.toFixed(2);
+};
+
+//========== WishList Handlers ===========//
+
+export const findWishListItemById = (
+  wishListItems: IProduct[],
+  itemId: number
+): IProduct | undefined => {
+  return wishListItems.find((item) => item.id === itemId);
+};
+
+export const addItemToWishList = (
+  wishListItems: IProduct[],
+  product: IProduct
+): IProduct[] => {
+  const exits = wishListItems.find((item: IProduct) => item.id === product.id);
+  if (exits) {
+    notify("error", "this product already exists in wish list");
+    return wishListItems;
+  } else {
+    notify("success", "added to wish list successfully");
+  }
+  return [...wishListItems, { ...(product as IProduct) }];
 };

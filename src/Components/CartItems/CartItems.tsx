@@ -4,13 +4,13 @@ import CartItem from "./CartItem";
 import { cartSelector, clearCart } from "../../RTK/features/Cart/CartSlice";
 import Button from "../Ui/Button";
 import { useAppDispatch } from "../../RTK/Store";
+import { ICartProduct } from "../../interfaces";
 
 const CartItems = () => {
   const { cartItems } = useSelector(cartSelector);
-
   const dispatch = useAppDispatch();
 
-  const renderCartItems = cartItems.map((item) => {
+  const renderCartItems = cartItems.map((item: ICartProduct) => {
     return <CartItem key={item.id} product={item} />;
   });
 

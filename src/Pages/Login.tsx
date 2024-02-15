@@ -6,14 +6,17 @@ import Button from "../Components/Ui/Button";
 import { CircularProgress } from "@mui/material";
 import MainTitle from "../Components/Ui/MainTitle";
 import { formLoginInputs } from "../helpers/Data";
-import { notify, storeInLocalStorage } from "../helpers/Functions";
+import { notify } from "../helpers/Functions";
 import { IFormLoginField } from "../interfaces";
 import InputLogin from "../Components/Ui/InputLogin";
 import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../RTK/Store";
+import { login } from "../RTK/features/Auth/Auth";
 
 const Login = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   //----------HANDLERS----------//
   const orderSchema = z.object({
     email: z.string().min(3, "email is required").email("enter valid email"),
@@ -35,8 +38,7 @@ const Login = () => {
     if (data) {
       if (data.password === "techno") {
         //store flag that user is login
-        storeInLocalStorage("isAuth", true);
-        storeInLocalStorage("user", data);
+        dispatch(login());
         notify("success", "Login successfully");
         setIsLoading(false);
         reset();
@@ -63,6 +65,8 @@ const Login = () => {
     <div className="flex flex-1 flex-col w-full md:w-1/2 mx-auto pb-16">
       <section className="container">
         <MainTitle title="Login" color="text-background" height="py-6" />
+        <p className="text-center">password:techno</p>
+        <p className="text-center">email:email@gmail.com</p>
         <div className="sm:mx-auto sm:w-full ">
           <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
             {renderInputsForm}

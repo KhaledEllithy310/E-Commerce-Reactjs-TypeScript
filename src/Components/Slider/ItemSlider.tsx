@@ -6,15 +6,24 @@ interface IProps {
 }
 const Item = ({ item }: IProps) => {
   return (
-    <section className="slide__item">
+    <section
+      className="slide__item "
+      style={{
+        backgroundImage: `url(${item.img})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
       <div className="img-container">
-        <img src={item.img} alt="img" />
+        {/* <img src={item.img} alt="img" /> */}
       </div>
-      <section className="absolute flex top-1/2 left-1/4 w-1/3 translate-y-[-50%]">
-        <div className="text-xl text-white space-y-10">
-          <p className="font-bold capitalize">{item.name}</p>
-          <p className="">{item.description}</p>
-          <Button classes="text-white bg-background py-2 px-20 hover:bg-sky-800">
+      <section className="absolute flex mt-[30px] top-1/2 left-1/2 translate-x-[-50%] md:left-1/4 md:w-1/3 translate-y-[-50%]">
+        <div className=" text-white space-y-10">
+          <p className="font-bold capitalize text-lg md:text-xl ">
+            {item.name}
+          </p>
+          <p className="text-sm md:text-lg">{item.description}</p>
+          <Button classes="text-lg md:text-xl text-white bg-background py-1 md:py-2 px-4 md:px-20 hover:bg-sky-800">
             buy now
           </Button>
         </div>

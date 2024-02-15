@@ -19,8 +19,8 @@ const orderSlice = createSlice({
       state.isFormShowed = true;
     },
     confirmPayment: (state, action: PayloadAction<boolean>) => {
-        state.isOrderDone = action.payload;
-        
+      state.isOrderDone = action.payload;
+      state.isFormShowed = false;
     },
   },
 });
