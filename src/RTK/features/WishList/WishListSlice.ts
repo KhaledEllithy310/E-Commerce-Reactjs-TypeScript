@@ -3,7 +3,6 @@ import { IProduct } from "../../../interfaces";
 import {
   addItemToWishList,
   getDataFromLocalStorage,
-  notify,
   storeInLocalStorage,
 } from "../../../helpers/Functions";
 import { RootState } from "../../Store";

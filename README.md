@@ -1,31 +1,69 @@
-# React + TypeScript + Vite
+# E-commerce-Techno — React App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 👁️ Project Preview
 
-Currently, two official plugins are available:
+Live Preview 👉 <https://e-commerce-techno.vercel.app/>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📝 Project Description & features
 
-## Expanding the ESLint configuration
+This project is a single-page React.js application that serves as an e-commerce platform. It includes the following features required for the task:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Home Page: Displays the main landing page of the e-commerce platform.
+- Products Category Page: Provides a page for browsing products with filters in the sidebar.
+- Product Details Page: Shows detailed information about each product.
+- Complete Cart & Ordering Cycle: Enables users to add products to their cart, proceed to checkout, and complete the ordering process.
+- User Authentication: Implements user authentication functionality to secure user accounts and enable personalized experiences.
+- Technologies Used: Utilizes React.js as the core framework, along with TypeScript, Material-UI, Tailwind CSS, React Router Dom, React Hooks, Redux Toolkit, Local Storage, React Hook Form, and Zod.
 
-- Configure the top-level `parserOptions` property like this:
+## 🛠️ Project Tools
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- React.js
+- TypeScript
+- Material-UI
+- Tailwind CSS
+- React Router Dom
+- React Hooks
+- Redux Toolkit (state management library)
+- Local storage
+- React Hook Form
+- Zod
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-# E-Commerce-Reactjs-TypeScript
+## ✨ Project Skills applied
+
+Front-End:
+
+- React (TypeScript): Core framework for building the UI with enhanced type safety.
+- HTML/CSS: Markup and styling for the application's structure and visual presentation.
+- TypeScript: Superset of JavaScript providing type checking and improved code maintainability.
+- React Router Dom: Handles routing within the application.
+- Redux Toolkit: State management library for managing application state.
+- Local Storage: Used for persistent storage of user data.
+- React Hook Form: Form library for handling form state, validation, and submission.
+- Zod: Schema validation library for enforcing data types and constraints.
+
+Soft Skills:
+
+- Problem-Solving: Ability to identify and address technical challenges.
+- Organization: Structuring code and project files for maintainability.
+- Attention to Detail: Ensuring accuracy and consistency in features.
+- User Experience (UX) Design: Creating intuitive and user-friendly interfaces.
+
+## How to run the app locally?
+
+To run the app locally,
+
+- First fork and clone the repository.
+- Then change to the directory where the repository is cloned.
+- Run `npm install` to install the dependencies.
+- Run `npm run dev` to run the application.
+  
+## 👋 Get In Touch
+
+- 🌐 Website 👉 <https://khaledellithy-portfolio.vercel.app/>
+- 👔 LinkedIn 👉 <https://www.linkedin.com/in/khaledashrafellithy/>
+- 🌟 Github 👉 <https://github.com/KhaledEllithy310>
+- 📧 Email 👉 <khaledellessy310@gmail.com>
+- ☎️ Whatsapp 👉 (+20) 112-461-2043
+
+2024 © Khaled Ellithy
+****
